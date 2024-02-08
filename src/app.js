@@ -1,23 +1,37 @@
+import "./style.css";
+
 function generateRandomCard() {
-  const topSuit = document.getElementById("topSuit")
-  const cardNum = document.getElementById("cardNum")
-  const bottomSuit = document.getElementById("bottomSuit")
-  
-  
-  const cardArr = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "K", "Q", "A"] 
-  const suitArr = ["♥", "♠", "♣", "♦"]
-  
-  
+  const topSuit = document.getElementById("topSuit");
+  const cardNum = document.getElementById("cardNum");
+  const bottomSuit = document.getElementById("bottomSuit");
+
+  const cardArr = [
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "J",
+    "K",
+    "Q",
+    "A"
+  ];
+  const suitArr = ["♥", "♠", "♣", "♦"];
+
   const randomCardIndex = Math.floor(Math.random() * cardArr.length);
   const randomSuitIndex = Math.floor(Math.random() * suitArr.length);
-  
+
   topSuit.innerText = suitArr[randomSuitIndex];
   bottomSuit.innerText = suitArr[randomSuitIndex];
   cardNum.innerText = cardArr[randomCardIndex];
-  
+
   topSuit.className = "";
   bottomSuit.className = "";
-  
+
   switch (suitArr[randomSuitIndex]) {
     case "♦":
       topSuit.classList.add("diamond");
@@ -38,7 +52,8 @@ function generateRandomCard() {
     default:
       break;
   }
-  }
-  
-  window.onload = generateRandomCard;
-  generateCardBtn.addEventListener("click", generateRandomCard)
+}
+
+const generateCardBtn = document.getElementById("generateCardBtn");
+window.onload = generateRandomCard;
+generateCardBtn.addEventListener("click", generateRandomCard);
